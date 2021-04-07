@@ -1,0 +1,11 @@
+<p>event-binding works!</p>
+
+<input type ="button" (click)="DisplayMsg()" value="click me">
+{{MSG}}
+
+<input type="text" #txtInput />
+<input type="button" (click)="log(txtInput.value)" value="log"/>
+
+<!-- <form #myform>
+
+</form> -->
