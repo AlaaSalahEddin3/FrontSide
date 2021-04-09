@@ -16,6 +16,11 @@ import { FormsModule } from '@angular/forms';
 import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { SquarePipe } from './square.pipe';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { EmpListComponent } from './emp-list/emp-list.component';
+import { EmpDetailsComponent } from './emp-details/emp-details.component';
+import { EmployeeService } from './employee.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,11 @@ import { SquarePipe } from './square.pipe';
     TwoWayBindingComponent,
     StructuralDirectivesComponent,
     PipesComponent,
-    SquarePipe
+    SquarePipe,
+    ParentComponent,
+    ChildComponent,
+    EmpListComponent,
+    EmpDetailsComponent
   ],
   imports: [
     BrowserModule,

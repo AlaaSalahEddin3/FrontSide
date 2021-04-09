@@ -1,0 +1,7 @@
+<p>parent works!</p>
+<app-child (childData)="dataFromChild=$event"   [parentData]="name" ></app-child>
+<!-- <app-child (childData)="captureData($event)"   [parentData]="name" ></app-child> -->
+
+{{dataFromChild}}
+
+<button (click)="getDataFromChild()">Get data from parent</button>
