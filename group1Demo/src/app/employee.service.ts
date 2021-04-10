@@ -1,20 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { EmployeeController } from 'src/APIs/EmployeeController';
+import { IEmployee } from './IEmployee';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  url='/assets/Data/employees.json';
+  fakeUrl=EmployeeController.GetAll;
 
-  returnAllEmployees()
+  returnAllEmployees():Observable<IEmployee[]>
   {
-    return [
-      {"name":"Abanoub Nabil" , "age":25},
-      {"name":"Abanoub Magdy" , "age":24},
-      {"name":"Gerges Abd elmalak" , "age":28},
-      {"name":"Rewan Atef" , "age":23},
-      {"name":"Salwa Ezz" , "age":22}
-           ]
+    return this.http.get<IEmployee[]>(this.url).pipe(catchError((err)=>
+    {
+      return throwError(err.message ||"Internal Server error contact site adminstarator");
+    }));
   }
 }

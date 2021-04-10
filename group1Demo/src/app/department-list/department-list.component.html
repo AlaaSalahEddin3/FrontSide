@@ -1,0 +1,4 @@
+<p>department-list works!</p>
+<div *ngFor="let dept of departments" (click)="goToDeptDetails(dept)">
+    {{dept.id}}) {{dept.name}}
+</div>
