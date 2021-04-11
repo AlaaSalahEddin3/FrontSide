@@ -6,3 +6,14 @@ You select department with id equal to {{deptId}}
     <a (click)="goNext()">Next</a>
     <a (click)="goPrev()">Previous</a>
 </p>
+
+<div>
+    <button (click)="goToDepartments()">
+        Go Back
+    </button>
+</div>
+
+<button (click)="GoToOverview()">Go to overView</button>
+<button (click)="GoToContact()">Go to Contact Information</button>
+
+<router-outlet></router-outlet>

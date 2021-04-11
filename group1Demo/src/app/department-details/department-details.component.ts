@@ -31,4 +31,20 @@ export class DepartmentDetailsComponent implements OnInit {
     this.router.navigate(["/Departments",prevId])
   }
 
+  goToDepartments()
+  {
+    this.router.navigate(["/Departments",{id:this.deptId}]);
+  }
+
+  GoToOverview()
+  {
+    this.router.navigate(['overview'],{relativeTo:this.activatedRoute})
+  }
+
+  GoToContact()
+  {
+    this.router.navigate(['contact'],{relativeTo:this.activatedRoute})
+
+  }
+
 }
