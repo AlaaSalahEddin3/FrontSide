@@ -12,7 +12,7 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
 import { AuthModule } from 'src/auth/auth.module';
 import { EventBindingComponent } from './event-binding/event-binding.component';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { SquarePipe } from './square.pipe';
@@ -28,6 +28,7 @@ import { DepartmentDetailsComponent } from './department-details/department-deta
 import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
 import { ContactInfoComponent } from './contact-info/contact-info.component';
 import { TDFComponent } from './tdf/tdf.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -52,14 +53,16 @@ import { TDFComponent } from './tdf/tdf.component';
     DepartmentDetailsComponent,
     DepartmentOverviewComponent,
     ContactInfoComponent,
-    TDFComponent
+    TDFComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,5 +13,10 @@ export class TDFComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  submitData(myForm)
+  {
+    console.log(this.userModel);
+    console.log(myForm)
+  }
 
 }

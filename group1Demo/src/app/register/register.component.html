@@ -1,0 +1,77 @@
+<div class="container">
+    <h3>Register</h3>
+    <form [formGroup]="registerForm">
+        {{registerForm.value |json}}
+        <div class="form-group">
+             <label>User Name</label>
+             <input formControlName="userName" [class.is-invalid]="userName.invalid &&userName.touched" type="text" class="form-control" />
+       
+        <div *ngIf="userName.invalid && userName.touched">
+            <small class="text-danger" *ngIf="userName.errors.required">User Name is required</small>
+            <small class="text-danger" *ngIf="userName.errors.minlength">Min Length is 5</small>
+            <small class="text-danger" *ngIf="userName.errors.forbiddenName">{{userName.errors.forbiddenName.value}} is not allowed</small>
+        </div>
+       {{userName.errors|json}}
+        </div>
+    
+           <div class="form-group">
+               <label>password</label>
+                <input formControlName="password" type="password" class="form-control" />
+           </div>
+    
+           <div class="form-group">
+                 <label>Confirm password</label>
+                 <input formControlName="confirmPassword" [class.is-invalid]="registerForm.errors?.misMatch"  type="password" class="form-control" />
+           <small class="text-danger" *ngIf="registerForm.errors?.misMatch">Password and confirm password not match</small>
+        </div>
+
+         <div class="form-group">
+                      <label>Email</label>
+                     <input type="text" [class.is-invalid]="email.invalid && email.touched" formControlName="email" 
+                class="form-control">
+                        <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required
+                        </small>
+            </div>
+
+     
+            <button (click)="addNewEmail()">Add aleternative Email</button>
+
+            <div formArrayName="alternativeEmails" *ngFor="let newEmail of alternativeEmails.controls; let i=index">
+                <label>Alternative Email number {{i+1}}</label>
+                <input type="text" class="form-control" [formControlName]="i">
+                <button (click)="removeEmail(i)">Remove this email</button>
+            </div>
+                  
+             <div class="form-check mb-3">
+                        <input class="form-check-input" (click)="setEmailToRequired()" formControlName="subscribe" type="checkbox">
+                        <label class="form-check-label">
+                          Send me promotional offers
+                        </label>
+              </div>
+            
+            <div formGroupName="address">
+
+                            <div class="form-group">
+                                <label>State</label>
+                                <input formControlName="state" type="text" class="form-control">
+                            </div>
+                
+                            <div class="form-group">
+                                <label>City</label>
+                                <input  formControlName="city" type="text" class="form-control">
+                            </div>
+                
+                            <div class="form-group">
+                                <label>Postal Code</label>
+                                <input formControlName="postalCode" type="text" class="form-control">
+                            </div>
+                    </div>
+                
+    
+            <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+
+        
+        <button (click)="bindData()">Load Data from Api</button>
+        
+</div>
