@@ -19,8 +19,8 @@ export class UserIndexComponent implements OnInit {
     .get()
     .subscribe((ss) => {
       ss.docs.forEach((doc) => {
-        console.log(doc.data);
-        alert(doc.data);
+       // console.log(doc.data);
+        
         this.AllUsers.push(doc.data());
       });
     });
