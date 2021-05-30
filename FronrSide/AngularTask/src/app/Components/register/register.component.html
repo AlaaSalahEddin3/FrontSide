@@ -1,0 +1,76 @@
+
+<div class="client">
+  
+</div>
+<div class="col-md-6 offset-md-3 mt-5 pb-5 pt-5">
+    <div class="card">
+        <h4 class="card-header">Registration</h4>
+        <div class="card-body">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input formControlName="username" type="text" class="form-control" placeholder="User Name" name="username" [class.is-invalid]="formFields.username?.invalid && formFields.username?.touched">
+                    <div *ngIf="formFields.username?.invalid && formFields.username?.touched">
+                        <small class="text-danger" *ngIf="formFields.username?.errors.required">User Name is required</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input formControlName="password" type="password" class="form-control" placeholder="Password" name="password" [class.is-invalid]="formFields.password?.invalid && formFields.password?.touched">
+                    <div *ngIf="formFields.password?.invalid && formFields.password?.touched">
+                        <small class="text-danger" *ngIf="formFields.password?.errors.required">Password is required</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input formControlName="email" type="email" class="form-control" placeholder="Email" name="email" [class.is-invalid]="formFields.email?.invalid && formFields.email?.touched">
+                    <div *ngIf="formFields.email?.invalid && formFields.email?.touched">
+                        <small class="text-danger" *ngIf="formFields.email?.errors.required">Email is required</small>
+                    </div>
+                </div>
+               
+                <div class="form-group">
+                    <label for="birthDate">birthDate</label>
+                    <input formControlName="birthDate" type="date" class="form-control" placeholder="birthDate" name="birthDate" [class.is-invalid]="formFields.birthDate?.invalid && formFields.birthDate?.touched">
+                    <div *ngIf="formFields.birthDate?.invalid && formFields.birthDate?.touched">
+                        <small class="text-danger" *ngIf="formFields.birthDate?.errors.required">Birthdate is required</small>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input formControlName="phone" type="text" class="form-control" placeholder="phone" name="phone" [class.is-invalid]="formFields.phone?.invalid && formFields.phone?.touched">
+                    <div *ngIf="formFields.phone?.invalid && formFields.phone?.touched">
+                        <small class="text-danger" *ngIf="formFields.phone?.errors.required">phoneis required</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input formControlName="address" type="text" class="form-control" placeholder="address" name="address" [class.is-invalid]="formFields.address?.invalid && formFields.address?.touched">
+                    <div *ngIf="formFields.address?.invalid && formFields.address?.touched">
+                        <small class="text-danger" *ngIf="formFields.address?.errors.required">phoneis required</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <select class="custom-select" formControlName="gender" [class.is-invalid]="formFields.gender.touched && (formFields.gender.value === 'Select Gender' || formFields.gender.value === '')">
+                        <option selected>
+                            Select Gender
+                        </option>
+                        <option *ngFor="let gen of genderList">{{gen}}
+                        </option>
+                    </select>
+                    <div *ngIf="formFields.gender.touched && (formFields.gender.value === 'Select Gender' || formFields.gender.value === '') ">
+                        <small class="text-danger" *ngIf="formFields.gender.value === '' || formFields.gender.value === 'Select Gender' || formFields.gender.errors.required ">gender is required</small>
+                    </div>
+                </div>
+                <button [disabled]="loading" class="btn btn-primary">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Register
+              </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<h2>this is home page</h2>
+<ul *ngIf="isUserLoggedIn()">
+<li class="nav-item">
+    <a class="btn btn-success" routerLink="/userData">GetUserDataOnFirebase</a>
+  </li>
+  <br>
+  <li class="nav-item">
+    <a class="btn btn-success"  routerLink="/userById">GetUserById</a>
+  </li>
+  <li class="nav-item">
+    <a class="btn btn-success"  routerLink="/register">Insert New Document on firebase</a>
+  </li>
+</ul>
