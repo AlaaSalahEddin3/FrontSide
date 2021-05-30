@@ -64,18 +64,7 @@ export class RegisterComponent implements OnInit {
     }
 
    //this for writing user data into firebase
-    /*this.auth.doRegister(newUser)
-    .then(res => {
-
-      this.errorMessage = "";
-      this.successMessage = "Your account has been created";
-    }, err => {
-      console.log(err);
-      this.errorMessage = err.message;
-      this.successMessage = "";
-      console.log(this.errorMessage)
-      
-    })*/
+  
     
     this._registerService.addNewUser(newUser)
       .pipe(first())
@@ -91,5 +80,17 @@ export class RegisterComponent implements OnInit {
           this.loading = false;
         });
         this.firebase.exampleCreate(newUser); 
+          this.auth.doRegister(newUser)
+    .then(res => {
+
+      this.errorMessage = "";
+      this.successMessage = "Your account has been created";
+    }, err => {
+      console.log(err);
+      this.errorMessage = err.message;
+      this.successMessage = "";
+      console.log(this.errorMessage)
+      
+    })
   }
 }
